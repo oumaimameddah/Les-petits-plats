@@ -1,2 +1,2 @@
-# Les-petits-plats
+# Les petits plats
  Les Petits Plats
