@@ -33,3 +33,104 @@ body {
 .header__logo {
     width: 201px;
 }
+
+/* Recipes section */
+.cards {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    width: 95%;
+    margin: 20px auto;
+}
+
+@media only screen and (min-width: 674px) {
+    .cards {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media only screen and (min-width: 992px) {
+    .cards {
+        width: 100%;
+        gap: 50px;
+    }
+}
+
+@media only screen and (min-width: 1198px) {
+    .cards {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+
+.card {
+    height: 364px;
+    background: var(--light-grey);
+    border-radius: var(--br-5);
+}
+
+.card a {
+    display: block;
+    text-decoration: none;
+    color: #000;
+}
+
+.card__thumb {
+    height: 178px;
+    background-color: var(--dark-grey);
+    border-top-left-radius: var(--br-5);
+    border-top-right-radius: var(--br-5);
+}
+
+.card__body {
+    height: 186px;
+    padding: 20px;
+    margin: 0;
+}
+
+.card__head {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+}
+
+.card__title {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.card__timeclock {
+    content: url("../assets/img/time.svg");
+}
+
+.card__time {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 7px;
+    font-weight: 700;
+}
+
+.card__content {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin-top: 20px;
+    font-size: var(--fs-12);
+}
+
+.card__ingredients {
+    height: 105px;
+    overflow: hidden;
+}
+
+.card__ingredient--bold {
+    font-weight: 700;
+}
+
+.card__description {
+    height: 109px;
+    display: -webkit-box;
+    -webkit-line-clamp: 6;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
