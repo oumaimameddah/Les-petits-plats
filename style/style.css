@@ -1,0 +1,35 @@
+:root {
+    --light-grey: #e7e7e7;
+    --dark-grey: #c7bebe;
+    --primary: #3282f7;
+    --success: #68d9a4;
+    --danger: #ed6454;
+    --border-radius: 5px;
+    --fs-18: 18px;
+    --fs-12: 12px;
+    --br-5: 5px;
+}
+
+body {
+    font-family: "latoregular", sans-serif;
+    font-size: 62.5%;
+}
+
+@media only screen and (min-width: 992px) {
+    .container {
+        width: 86%;
+        margin: auto;
+    }
+}
+
+/* header section */
+.header {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.header__logo {
+    width: 201px;
+}
