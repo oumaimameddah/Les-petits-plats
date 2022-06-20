@@ -12,6 +12,16 @@ export const AFFICHER_RECIPES = () => {
         });
 }
 
+// AJOUTER LES EVNEMENTS AUX FILTRES
+let buttons = document.querySelectorAll(".filter__select");
+let buttonValue;
+buttons.forEach((btn) => {
+    btn.addEventListener("click", () => {
+        buttonValue = btn.getAttribute("value");
+        console.log(buttonValue, btn);
+    })
+})
+
 const init = () => {
     AFFICHER_RECIPES();
 }

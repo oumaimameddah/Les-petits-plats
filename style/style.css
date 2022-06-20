@@ -1,3 +1,6 @@
+@import 'filter.css';
+@import 'search.css';
+
 :root {
     --light-grey: #e7e7e7;
     --dark-grey: #c7bebe;

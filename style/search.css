@@ -1,0 +1,33 @@
+/*
+ * STYLE CSS DE LA SECTION SEARCH
+ */
+.search__input-group {
+    position: relative;
+    overflow: hidden;
+    margin-top: 16px;
+}
+
+.search__input {
+    background: var(--light-grey);
+    border: none;
+    padding: 16px;
+    width: 100%;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.search__input::placeholder {
+    color: #000;
+    opacity: 0.25;
+    font-size: var(--fs-18);
+    width: 80%;
+}
+
+.search__button {
+    background: transparent;
+    border: none;
+    position: absolute;
+    right: 8px;
+    top: 0;
+    height: 100%;
+}

@@ -21,6 +21,60 @@
     <!-------- MAIN -------->
     <main class="main">
 
+        <!-------- RECHERCHE SECTION -------->
+        <section class="search">
+            <div class="search__input-group">
+                <input
+                        type="text"
+                        class="search__input"
+                        placeholder="Rechercher un ingrédient, un appareil, un ustensile, une recette..."
+                />
+                <button class="search__button">
+                    <img src="./assets/img/loupe.svg" alt="Go further" />
+                </button>
+            </div>
+        </section>
+
+        <section class="tags">
+            <!-- LISTE DES FILTRES-->
+        </section>
+
+        <!-------- FILTER -------->
+        <section class="filter">
+            <div class="filter__custom-select">
+                <span class="filter__custom-arrow"></span>
+                <input
+                        class="filter__select filter__select--primary"
+                        type="button"
+                        data-color="primary"
+                        data-value="Ingrédients"
+                        value="Ingrédients"
+                />
+            </div>
+
+            <div class="filter__custom-select">
+                <span class="filter__custom-arrow"></span>
+                <input
+                        class="filter__select filter__select--success"
+                        type="button"
+                        data-color="success"
+                        data-value="Appareil"
+                        value="Appareil"
+                />
+            </div>
+
+            <div class="filter__custom-select">
+                <span class="filter__custom-arrow"></span>
+                <input
+                        class="filter__select filter__select--danger"
+                        type="button"
+                        data-color="danger"
+                        data-value="Ustensiles"
+                        value="Ustensiles"
+                />
+            </div>
+        </section>
+
         <!-------- CARDS -------->
         <section class="cards">
             <!-- CETTE SECTION CONTIENT TOUTES LES CARDS DES RECETTES -->
