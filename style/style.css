@@ -43,6 +43,21 @@ body {
     margin: 20px auto;
 }
 
+.cards__no-recipes {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    height: 200px;
+    z-index: -1;
+}
+
+.cards__no-recipes-text {
+    font-weight: bold;
+    font-size: var(--fs-18);
+    color: rgb(49, 49, 49);
+}
+
 @media only screen and (min-width: 674px) {
     .cards {
         grid-template-columns: 1fr 1fr;
