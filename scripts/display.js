@@ -1,7 +1,9 @@
 /**
  * LE SCRIPT RESPONSABLE DE L'AFFICHAGE
  * */
-import {capitalize} from "./utils.js";
+import {capitalize, shuffle} from "./utils.js";
+import {remplireFilter} from "./filter.js";
+import {listenFilter} from "./tags.js";
 
 export const DISPLAY_CARDS = (data) => {
     /**
@@ -62,3 +64,85 @@ export const DISPLAY_CARDS = (data) => {
         });
     }
 }
+
+
+export const DISPLAY_FILTERS = (data, btn, filter, value, color) => {
+    if (btn && filter && value && color) {
+        remplireFilter(data, value, btn, color, filter);
+    } else if (data) {
+        document.querySelectorAll(".filter__select").forEach((button) => {
+            let value = button.getAttribute("value");
+            let datacolor = button.getAttribute("data-color");
+            remplireFilter(data, value, button, datacolor);
+        });
+    }
+
+    // ECOUTE L'ENSEMBLE DES LI (textcontent et color)
+    listenFilter(data, document.querySelectorAll(".filter__custom-option"));
+}
+
+// NEW SET : distinct INGREDIENTS
+export const displayFilterIngredients = (data, filter) => {
+
+        const distinctIngredients = [
+            ...new Set(
+                data
+                    .map((recipe) =>
+                        recipe.ingredients.map((ingredient) =>
+                            ingredient.ingredient.toLowerCase().trim()
+                        )
+                    )
+                    .flat()
+                    .sort()
+            ),
+        ];
+
+        // SI RECHERCHE DANS INPUT....
+        if (filter) {
+            return distinctIngredients.filter((ingredient) =>
+                ingredient.includes(filter.toLowerCase().trim())
+            );
+        }
+        // SANS RECHERCHE
+        return shuffle(distinctIngredients);
+};
+
+// NEW SET : distinct APPLIANCE
+export const displayFilterAppliance = (data, filter) => {
+        const distinctAppliance = [
+            ...new Set(
+                data.map((recipe) => recipe.appliance.toLowerCase().trim()).sort()
+            ),
+        ];
+
+        // SI RECHERCHE DANS INPUT....
+        if (filter) {
+            return distinctAppliance.filter((appliance) =>
+                appliance.includes(filter.toLowerCase().trim())
+            );
+        }
+        // SANS RECHERCHE
+        return distinctAppliance;
+};
+
+// NEW SET : distinct USTENSILS
+export const displayFilterUstensils = (data, filter) => {
+        const distinctUstensils = [
+            ...new Set(
+                data
+                    .map((recipe) =>
+                        recipe.ustensils.map((item) => item.toLowerCase().trim())
+                    )
+                    .flat()
+                    .sort()
+            ),
+        ];
+        // SI RECHERCHE DANS INPUT....
+        if (filter) {
+            return distinctUstensils.filter((ustensil) =>
+                ustensil.includes(filter.toLowerCase().trim())
+            );
+        }
+        // SANS RECHERCHE
+        return distinctUstensils;
+};
