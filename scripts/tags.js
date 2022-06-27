@@ -102,7 +102,7 @@ export const showListOfTags = function (arrayOfTags, data) {
         tag_HTML += `<span class="tags__item tags__item--${tag.color}">
     <span  class="tags__name">${tag.title}</span>
     <span id="${index}" class="tags__close">
-    <img src="./assets/image/remove-icon.png" alt=""
+    <img src="./assets/img/remove-icon.png" alt=""
     /></span>
     </span>`;
     });
