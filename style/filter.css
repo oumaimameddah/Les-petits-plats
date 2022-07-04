@@ -31,7 +31,6 @@
     width: 100%;
     height: 69px;
     text-align: start;
-    padding-left: 20px;
     border-radius: var(--br-5);
     font-size: var(--fs-18);
     cursor: pointer;
@@ -74,17 +73,18 @@
 
 .filter__custom-menu {
     display: none;
+    list-style: none;
 }
 
 .filter__show {
     display: flex;
     flex-wrap: wrap;
     position: absolute;
-    top: 65px;
+    top: 55px;
     color: #fff;
-    width: 100%;
+    width: 96.6%;
     max-height: 360px;
-    overflow: hidden;
+    overflow: auto;
     border-bottom-left-radius: var(--br-5);
     border-bottom-right-radius: var(--br-5);
 }
@@ -103,7 +103,6 @@
 
 .filter__custom-option {
     width: 33%;
-    padding: 4px 0 4px 20px;
     font-size: var(--fs-18);
     /* color: rgb(49, 49, 49); */
     /* text-transform: capitalize; */
@@ -129,6 +128,7 @@
     background: grey;
     transition: 300ms;
 }
+
 .filter__custom-option::after {
     content: "";
     width: 0;
@@ -157,15 +157,19 @@
     color: #fff;
     padding: 10px 20px;
 }
+
 .tags__item--danger {
     background: var(--danger);
 }
+
 .tags__item--success {
     background: var(--success);
 }
+
 .tags__item--primary {
     background: var(--primary);
 }
+
 .tags__name {
     margin-right: 13px;
 }
