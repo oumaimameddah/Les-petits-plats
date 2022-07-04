@@ -5,6 +5,7 @@
 import {DISPLAY_CARDS, DISPLAY_FILTERS} from "./display.js";
 import {showListOfTags, tagsArray} from "./tags.js";
 import {isFilterReload} from "./filter.js";
+import {algoSearchMap} from "./algo-map.js";
 
 export const capitalize = (str) => {
     // METTRE LA PREMIERE LETTRE EN LETTRE CAPITALE
@@ -57,48 +58,6 @@ export const deleteDuplicatesGoogled = (array) => {
     return cleanDuplicate;
 };
 
-export let theMillTurns = (recipes, filter) => {
-    let googledCards = [];
-
-    recipes.map((recipe) => {
-        if (
-            // une recette ?
-            recipe.name.toLowerCase().trim().includes(filter.toLowerCase().trim()) ||
-            recipe.description
-                .toLowerCase()
-                .trim()
-                .includes(filter.toLowerCase().trim()) ||
-            // un appareil ?
-            recipe.appliance
-                .toLowerCase()
-                .trim()
-                .includes(filter.toLowerCase().trim())
-        ) {
-            googledCards.push(recipe);
-        }
-
-        // un ustensil ?
-        recipe.ustensils.filter((elt) => {
-            if (elt.toLowerCase().includes(filter.toLowerCase())) {
-                googledCards.push(recipe);
-            }
-        });
-
-        // un ingredient ?
-        recipe.ingredients.map((ingredient) => {
-            if (
-                ingredient.ingredient
-                    .toLowerCase()
-                    .trim()
-                    .includes(filter.toLowerCase().trim())
-            ) {
-                googledCards.push(recipe);
-            }
-        });
-    });
-    return googledCards;
-};
-
 // LISTEN INPUT BARRE DE RECHERCHE
 export let IS_GOOGLE = (recipes) => {
     const takeIt = document.querySelector(".search__input");
@@ -106,7 +65,7 @@ export let IS_GOOGLE = (recipes) => {
     takeIt.addEventListener("input", () => {
         // si le nbre de lettre dépasse 2 alors :  LANCER ALGO
         if (takeIt.value.length > 2) {
-            const googledRecipes = theMillTurns(recipes, takeIt.value);
+            const googledRecipes = algoSearchMap(recipes, takeIt.value);
             const googledRecipesDistinct = deleteDuplicatesGoogled(googledRecipes);
             // console.log(googledRecipesDistinct);
             DISPLAY_CARDS(googledRecipesDistinct);
