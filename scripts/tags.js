@@ -1,6 +1,7 @@
 import {DISPLAY_CARDS} from "./display.js";
 import {isFilterReload} from "./filter.js";
-import {deleteDuplicatesGoogled, theMillTurns} from "./utils.js";
+import {deleteDuplicatesGoogled} from "./utils.js";
+import {algoSearchLoop} from "./algo-loop.js";
 
 let originalRecipes = [];
 let distinctFilteredRecipes = [];
@@ -30,7 +31,7 @@ const tagIsNone = (e) => {
         // console.log(tagReload);
         tagsArray.forEach((item) => {
             let distinctFilteredRecipes = deleteDuplicatesGoogled(
-                theMillTurns(tagReload[0], item.title)
+                algoSearchLoop(tagReload[0], item.title)
             );
             // console.log(distinctFilteredRecipes);
             tagReload[0] = [...distinctFilteredRecipes];
@@ -65,7 +66,7 @@ export const listenFilter = (data, keywordlist) => {
                 //ON FAIT LA RECHERCHE SUR CHAQUE TAG
                 tagsArray.forEach((item) => {
                     distinctFilteredRecipes = deleteDuplicatesGoogled(
-                        theMillTurns(data, item.title)
+                        algoSearchLoop(data, item.title)
                     );
                     data = [...distinctFilteredRecipes];
                 });

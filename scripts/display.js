@@ -9,7 +9,7 @@ export const DISPLAY_CARDS = (data) => {
     /**
      * Cette Fonction permet de faire l'affichage des données
      * */
-    const cards = document.querySelector(".cards");
+    let cards = document.getElementById('cards-section');
     cards.innerHTML = "";
 
     if (data.length === 0) {
@@ -18,7 +18,7 @@ export const DISPLAY_CARDS = (data) => {
                 <div class="cards__no-recipes">
                     <p class="cards__no-recipes-text">Aucune recette ne correspond à votre critère… </p>
                  </div>`;
-        cards.insertAdjacentHTML("beforebegin", templateNoData);
+        cards.insertAdjacentHTML("afterbegin", templateNoData);
     } else {
         // Pour chaque recipe (recette)
         data.forEach((element) => {
